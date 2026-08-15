@@ -26,12 +26,12 @@
 # THE SOFTWARE.
 
 import unittest
-import jsmin
+import js_min
 
 
 class JsTests(unittest.TestCase):
     def _minify(self, js):
-        return jsmin.jsmin(js)
+        return js_min.jsmin(js)
 
     def assertEqual(self, thing1, thing2):
         if thing1 != thing2:
@@ -40,7 +40,7 @@ class JsTests(unittest.TestCase):
         return True
     
     def assertMinified(self, js_input, expected, **kwargs):
-        minified = jsmin.jsmin(js_input, **kwargs)
+        minified = js_min.jsmin(js_input, **kwargs)
         assert minified == expected, "\ngot: %r\nexp: %r" % (minified, expected)
         
     def testQuoted(self):
@@ -300,7 +300,7 @@ var  foo    =  "hey";
             }
             ''')
         outs = StringIO()
-        m = jsmin.JavascriptMinify()
+        m = js_min.JavascriptMinify()
         m.minify(ins, outs)
         output = outs.getvalue()
         assert output == "function foo(''){}"
@@ -308,7 +308,7 @@ var  foo    =  "hey";
     def testUnicode(self):
         instr = u'\u4000 //foo'
         expected = u'\u4000'
-        output = jsmin.jsmin(instr)
+        output = js_min.jsmin(instr)
         self.assertEqual(output, expected)
 
     def testCommentBeforeEOF(self):
@@ -391,7 +391,7 @@ var  foo    =  "hey";
         original = '''var /** holds major version number for IE or NaN for real browsers */
                       msie,
                       jqLite,           // delay binding since jQuery could be loaded after us.'''
-        minified = jsmin.jsmin(original)
+        minified = js_min.jsmin(original)
         self.assertTrue('var\nmsie' in minified)
 
     def test_angular_2(self):
@@ -592,10 +592,10 @@ console.log('hello!');}/*! Copyright blah blah
 class RegexTests(unittest.TestCase):
 
     def regex_recognise(self, js):
-        klass = jsmin.io.StringIO
+        klass = js_min.io.StringIO
         ins = klass(js[2:])
         outs = klass()
-        jsmin.JavascriptMinify(ins, outs).regex_literal(js[0], js[1])
+        js_min.JavascriptMinify(ins, outs).regex_literal(js[0], js[1])
         return outs.getvalue()
 
     def assert_regex(self, js_input, expected):

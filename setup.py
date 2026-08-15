@@ -10,18 +10,18 @@ def long_description():
 
 
 setup(
-    name="jsmin",
-    version=re.search(r'__version__ = ["\']([^"\']+)', open('jsmin/__init__.py').read()).group(1),
-    packages=['jsmin'],
+    name="js-min",
+    version=re.search(r'__version__ = ["\']([^"\']+)', open('js_min/__init__.py').read()).group(1),
+    packages=['js_min'],
     description='JavaScript minifier.',
     long_description=long_description(),
     author='Dave St.Germain',
     author_email='dave@st.germa.in',
     maintainer='Tikitu de Jager',
     maintainer_email='tikitu+jsmin@logophile.org',
-    test_suite='jsmin.test',
+    test_suite='js_min.test',
     license='MIT License',
-    url='https://github.com/tikitu/jsmin/',
+    url='https://github.com/QQSHI13/js-min/',
     classifiers=[
         'Development Status :: 5 - Production/Stable',
         'Environment :: Web Environment',
