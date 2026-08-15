@@ -37,7 +37,7 @@ parameter useful:
 Where to get it
 ===============
 
-* install the package `from pypi <https://pypi.org/project/js-min/>`_
+* install the package `from pypi <https://pypi.org/project/min-js/>`_
 * get the latest release `from latest-release on github <https://github.com/QQSHI13/js-min/tree/latest-release/js_min>`_
 * get the development version `from master on github <https://github.com/QQSHI13/js-min/>`_
 

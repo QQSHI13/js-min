@@ -10,7 +10,7 @@ def long_description():
 
 
 setup(
-    name="js-min",
+    name="min-js",
     version=re.search(r'__version__ = ["\']([^"\']+)', open('js_min/__init__.py').read()).group(1),
     packages=['js_min'],
     description='JavaScript minifier.',
