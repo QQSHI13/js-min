@@ -41,7 +41,8 @@ class JsTests(unittest.TestCase):
     
     def assertMinified(self, js_input, expected, **kwargs):
         minified = js_min.jsmin(js_input, **kwargs)
-        assert minified == expected, "\ngot: %r\nexp: %r" % (minified, expected)
+        if minified != expected:
+            raise AssertionError("\ngot: %r\nexp: %r" % (minified, expected))
         
     def testQuoted(self):
         js = r'''
@@ -303,7 +304,7 @@ var  foo    =  "hey";
         m = js_min.JavascriptMinify()
         m.minify(ins, outs)
         output = outs.getvalue()
-        assert output == "function foo(''){}"
+        self.assertEqual(output, "function foo(''){}")
     
     def testUnicode(self):
         instr = u'\u4000 //foo'
@@ -599,9 +600,11 @@ class RegexTests(unittest.TestCase):
         return outs.getvalue()
 
     def assert_regex(self, js_input, expected):
-        assert js_input[0] == '/'  # otherwise we should not be testing!
+        self.assertEqual(js_input[0], '/')  # otherwise we should not be testing!
         recognised = self.regex_recognise(js_input)
-        assert recognised == expected, "\n in: %r\ngot: %r\nexp: %r" % (js_input, recognised, expected)
+        if recognised != expected:
+            raise AssertionError(
+                "\n in: %r\ngot: %r\nexp: %r" % (js_input, recognised, expected))
 
     def test_simple(self):
         self.assert_regex('/123/g', '/123/')

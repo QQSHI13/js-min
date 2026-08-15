@@ -1,17 +1,23 @@
 from setuptools import setup
 
-import os, sys, re
+import os, re
 
 os.environ['COPYFILE_DISABLE'] = 'true'  # this disables including resource forks in tar files on os x
 
 
 def long_description():
-    return open('README.md').read() + '\n' + open('CHANGELOG.txt').read()
+    with open('README.md') as readme, open('CHANGELOG.txt') as changelog:
+        return readme.read() + '\n' + changelog.read()
+
+
+def version():
+    with open('js_min/__init__.py') as f:
+        return re.search(r'__version__ = ["\']([^"\']+)', f.read()).group(1)
 
 
 setup(
     name="min-js",
-    version=re.search(r'__version__ = ["\']([^"\']+)', open('js_min/__init__.py').read()).group(1),
+    version=version(),
     packages=['js_min'],
     description='JavaScript minifier.',
     long_description=long_description(),
