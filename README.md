@@ -3,7 +3,7 @@
 [![PyPI version](https://img.shields.io/pypi/v/min-js.svg)](https://pypi.org/project/min-js/)
 [![Publish](https://github.com/QQSHI13/js-min/actions/workflows/publish.yml/badge.svg)](https://github.com/QQSHI13/js-min/actions/workflows/publish.yml)
 [![CodeQL](https://github.com/QQSHI13/js-min/actions/workflows/codeql.yml/badge.svg)](https://github.com/QQSHI13/js-min/actions/workflows/codeql.yml)
-[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/QQSHI13/js-min/blob/master/LICENSE.txt)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/QQSHI13/js-min/blob/main/LICENSE.txt)
 
 A community fork of the [`jsmin`](https://github.com/tikitu/jsmin) JavaScript minifier.
 
@@ -65,7 +65,7 @@ The upstream project used to be hosted
 found there.
 
 If possible, please make separate pull requests for tests and for code: tests
-will be added to the `latest-release` branch while code will go to `master`.
+will be added to the `latest-release` branch while code will go to `main`.
 
 Unless you request otherwise, your GitHub identity will be added to the
 contributor list below.
