@@ -6,7 +6,7 @@ os.environ['COPYFILE_DISABLE'] = 'true'  # this disables including resource fork
 
 
 def long_description():
-    return open('README.rst').read() + '\n' + open('CHANGELOG.txt').read()
+    return open('README.md').read() + '\n' + open('CHANGELOG.txt').read()
 
 
 setup(
@@ -15,6 +15,7 @@ setup(
     packages=['js_min'],
     description='JavaScript minifier.',
     long_description=long_description(),
+    long_description_content_type='text/markdown',
     author='Dave St.Germain',
     author_email='dave@st.germa.in',
     maintainer='Tikitu de Jager',
